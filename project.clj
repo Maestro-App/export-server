@@ -4,6 +4,7 @@
   :license {:name "Eclipse Public License"
             :url  "http://www.eclipse.org/legal/epl-v10.html"}
   :jvm-opts ["-Dphantomjs.binary.path=/usr/local/bin/phantomjs"]
+  :min-lein-version "2.0.0"
   :dependencies [[org.clojure/clojure "1.8.0"]
                  ;http
                  [javax.servlet/javax.servlet-api "3.1.0"]
@@ -100,6 +101,8 @@
             [lein-ancient "0.6.10"]]
   :main ^:aot export-server.core
   :profiles {:dev {:jvm-opts ["-Ddev=true"]}
+	     :production {:env {:production true}}
              :uberjar {:aot :all}}
   :jar-name "export-server.jar"
   :uberjar-name "export-server-standalone.jar")
+
